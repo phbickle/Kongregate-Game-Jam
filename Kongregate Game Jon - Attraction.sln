@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{C8EC2A33-22DC-0328-AAB8-F4A97040337E}") = "Kongregate Game Jon - Attraction", "Assembly-CSharp.csproj", "{4346EBD3-9D1A-920B-3731-DC7F70F80959}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4346EBD3-9D1A-920B-3731-DC7F70F80959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4346EBD3-9D1A-920B-3731-DC7F70F80959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4346EBD3-9D1A-920B-3731-DC7F70F80959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4346EBD3-9D1A-920B-3731-DC7F70F80959}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
