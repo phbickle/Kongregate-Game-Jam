@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour
 	public List<Items> inventory = new List<Items>();		//initalise a list of items. Used for adding items to inventory
 	public List<Items> slots = new List<Items>();			//initalise a list of items. Used to store inventory with empty data 
 
-	private ItemDatabase database;							//variable to hold an instance if the Item Database
+	private ItemDatabase database;							//variable to hold an instance of the Item Database
 
 	private bool showInventory;
 	private bool showTooltip;								//bool variable for checking to show tooltip
@@ -32,7 +32,8 @@ public class Inventory : MonoBehaviour
 			slots.Add(new Items());
 			inventory.Add (new Items ());
 		}
-			//Initialies database variable
+
+		//Initialies database variable
 		database = GameObject.FindGameObjectWithTag("ItemDatabase").GetComponent<ItemDatabase>();
 
 		//Test of AddItem and RemoveItems Functions
@@ -42,10 +43,9 @@ public class Inventory : MonoBehaviour
 		RemoveItem (0);
 		//
 
-		//Test of InventoryContains function
-		print (InventoryContains (4));
-		print (InventoryContains (1));
-		//
+		//LoadInventory (); 								//TODO: remove commenting once test adds above are removed.
+
+
 	}
 
 	void Update()
@@ -54,10 +54,17 @@ public class Inventory : MonoBehaviour
 		{
 			showInventory = !showInventory;
 		}
+		if(Input.GetButtonDown("Storage"))					//If the storage is showing, hide it
+		{
+			if (showInventory == true)
+			{
+				showInventory = false;
+			}
+		}
 	}
 	
 	void OnGUI()
-	{			
+	{
 		tooltip = "";										//set the tooltip to blank every time OnGUI is called
 
 		if (showInventory)									//Calls the DrawInventory function
@@ -93,43 +100,43 @@ public class Inventory : MonoBehaviour
 
 				slots [i] = inventory [i];					//set item at i in slots to the item held in the inventory at i
 
-				if (slots [i].itemName != null) 
-				{				//Check to make sure slot should not be empty
+				if (slots [i].itemName != null) {				//Check to make sure slot should not be empty
 					GUI.DrawTexture (slotRect, slots [i].itemIcon);	//Place icon for item in the proper spot in the inventory
 
-					if (slotRect.Contains (e.mousePosition)) 
-					{ //Check to see if mouse is over a slot in the inventory
+					if (slotRect.Contains (e.mousePosition)) { //Check to see if mouse is over a slot in the inventory
 						tooltip = CreateTooltip (slots [i]);			//Pass in current slot for tooltip
 
 						showTooltip = true;
 
-						if (e.button == 0 && e.type == EventType.mouseDrag && !draggingItem) //Drag items out of slots
-						{	
+						if (e.button == 0 && e.type == EventType.mouseDrag && !draggingItem) 
+						{ //Drag items out of slots
 							draggingItem = true;
 							prevIndex = i;
 							draggedItem = slots [i];
 							inventory [i] = new Items ();
 						}
-						if (e.type == EventType.mouseDown && draggingItem) 	//Swap Items
-						{ 	
+						if (e.type == EventType.mouseDown && draggingItem) 
+						{ 	//Swap Items
 							inventory [prevIndex] = inventory [i];
 							inventory [i] = draggedItem;
 							draggingItem = false;
 							draggedItem = null;
+							SaveInventory ();
 						}
 					}
 				} 
-
 				else 
 				{
 					if (slotRect.Contains (e.mousePosition)) 
-					{
+					{ 				//Put dragged item into an empty slot
 						if (e.type == EventType.mouseDown && draggingItem) 
 						{
 							inventory [i] = draggedItem;
 							draggingItem = false;
 							draggedItem = null;
+							SaveInventory ();
 						}
+
 					}
 				}
 
@@ -167,8 +174,8 @@ public class Inventory : MonoBehaviour
 		}
 	}
 
-	void RemoveItem(int ID)
-	{
+	void RemoveItem(int ID)											//Function to remove an item from the inventory. Currently removes the first instance item of that type in the inventory.
+	{																//TODO Fix so that it removes the correct instance of the item instead of the first one
 		for (int i = 0; i < inventory.Count; i++) 					//loop through each item in the inventory
 		{					
 			if (inventory [i].itemID == ID) 
@@ -180,7 +187,7 @@ public class Inventory : MonoBehaviour
 		}
 	}
 
-	bool InventoryContains(int ID)
+	bool InventoryContains(int ID)									//bool function that returns if the inventory contains a specific item or not
 	{
 		bool result = false;
 		for (int i = 0; i < inventory.Count; i++) 
@@ -192,5 +199,22 @@ public class Inventory : MonoBehaviour
 			}
 		}
 		return result;
+	}
+
+	void SaveInventory()										//Save Inventory functio
+	{
+		for (int i = 0; i < inventory.Count; i++)
+		{
+			PlayerPrefs.SetInt("inventory " + i, inventory[i].itemID);
+		}
+
+	}
+
+	void LoadInventory()										//Load inventory functin
+	{
+		for (int i = 0; i < inventory.Count; i++) 
+		{
+			inventory[i] = PlayerPrefs.GetInt("inventory " + i, -1) >= 0 ? database.items[PlayerPrefs.GetInt("inventory " + i)]  : new Items(); 
+		}
 	}
 }

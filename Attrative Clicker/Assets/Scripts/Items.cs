@@ -23,5 +23,6 @@ public class Items 												//Item Class
 
 	public Items()												//Defaul Constructer for Items Class
 	{
+		itemID = -1;
 	}
 }
