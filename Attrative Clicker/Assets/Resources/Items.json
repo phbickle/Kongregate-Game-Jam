@@ -1,0 +1,25 @@
+{
+	"Items":[
+	{
+		"itemID": "0", 
+		"itemName": "Flint", 
+		"itemDesc": "Brittle stone with many uses", 
+		"itemValue": "1",
+		"iconName": "Test Item 1"
+	},
+	{
+		"itemID": "1", 
+		"itemName": "Vine", 
+		"itemDesc": "Thick vine with many uses", 
+		"itemValue": "1",
+		"iconName": "Test item 2"
+	},
+	{
+		"itemID": "2",
+		"itemName": "Bark", 
+		"itemDesc": "Bark from a tree",  
+		"itemValue": "1",
+		"iconName": "Test item 3"
+	}
+	]
+}

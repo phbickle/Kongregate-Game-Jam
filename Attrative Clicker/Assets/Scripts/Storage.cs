@@ -8,7 +8,7 @@ public class Storage : MonoBehaviour
 
 	public GUISkin skin;									//Variable to hold background tile for Storage
 
-	public List<Items> storage = new List<Items>();		//initalise a list of items. Used for adding items to Storage
+	public List<Items> storage = new List<Items>();			//initalise a list of items. Used for adding items to Storage
 	public List<Items> slots = new List<Items>();			//initalise a list of items. Used to store Storage with empty data 
 
 	private ItemDatabase database;							//variable to hold an instance of the Item Database
@@ -40,6 +40,7 @@ public class Storage : MonoBehaviour
 		AddItem (0);
 		AddItem (0);
 		AddItem (1);
+		AddItem (2);
 		RemoveItem (0);
 		//
 
