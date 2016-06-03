@@ -45,16 +45,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Scripts\ClickTest.cs" />
+     <Compile Include="Assets\Scripts\CollectObject.cs" />
+     <Compile Include="Assets\Scripts\GlobalTimers.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\ItemDatabase.cs" />
      <Compile Include="Assets\Scripts\Items.cs" />
      <Compile Include="Assets\Scripts\ShowInventoryButton.cs" />
+     <Compile Include="Assets\Scripts\Storage.cs" />
+     <Compile Include="Assets\Scripts\WorldObjectDatabase.cs" />
+     <Compile Include="Assets\Scripts\WorldObjects.cs" />
+     <Compile Include="Assets\Scripts\onDeath.cs" />
+     <Compile Include="Assets\Scripts\playerScript.cs" />
+     <Compile Include="Assets\Scripts\spawner.cs" />
      <Compile Include="Assets\text shaders.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="LitJson">
+ <HintPath>C:/Users/Phil/Desktop/Attractive Clicker/Attrative Clicker/Assets/LitJson.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
