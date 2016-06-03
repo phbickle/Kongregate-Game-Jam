@@ -103,6 +103,4 @@ public class ItemDatabase : MonoBehaviour
 		return null;
 	}
 
-
-
 }

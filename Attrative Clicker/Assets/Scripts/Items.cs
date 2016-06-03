@@ -27,7 +27,6 @@ public class Items 												//Item Class
 		itemDesc = desc;
 		itemValue = value;
 		itemIcon = Resources.Load<Texture2D> (iconName);
-		Debug.Log(id + ", " + name + ", " + desc + ", " + value + ", " + iconName); 
 
 	}
 

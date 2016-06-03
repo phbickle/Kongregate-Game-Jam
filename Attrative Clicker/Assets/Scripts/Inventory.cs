@@ -36,15 +36,7 @@ public class Inventory : MonoBehaviour
 		//Initialies database variable
 		database = GameObject.FindGameObjectWithTag("ItemDatabase").GetComponent<ItemDatabase>();
 
-		//Test of AddItem and RemoveItems Functions
-		AddItem (0);
-		AddItem (0);
-		AddItem (1);
-		AddItem (2);
-		RemoveItem (0);
-		//
-
-		//LoadInventory (); 								//TODO: remove commenting once test adds above are removed.
+		LoadInventory (); 								//TODO: remove commenting once test adds above are removed.
 
 
 	}
@@ -157,7 +149,7 @@ public class Inventory : MonoBehaviour
 		return tooltip;
 	}
 
-	void AddItem(int ID)											//Function to add items to the inventory
+	public void AddItem(int ID)											//Function to add items to the inventory
 	{
 		for(int i = 0; i < inventory.Count; i++)					//loop through each item in the inventory
 		{

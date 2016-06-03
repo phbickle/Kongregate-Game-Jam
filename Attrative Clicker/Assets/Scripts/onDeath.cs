@@ -8,11 +8,14 @@ public class onDeath : MonoBehaviour {
 	public Transform monster;
 	public Transform coin;
 
+	public GameObject whatToSpawnPrefab;
+
 
 	int health = 5;
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+	{
+		whatToSpawnPrefab = GameObject.FindGameObjectWithTag ("Coin");
 	}
 	
 	// Update is called once per frame
@@ -27,7 +30,8 @@ public class onDeath : MonoBehaviour {
 			Destroy(gameObject);
 			//could make the looting mechanism here
 			//droppableItemsClone[0] = Instantiate (droppableItems[0], monster.transform.position, Quaternion.identity) as GameObject;
-			Instantiate ( coin, monster.transform.position, Quaternion.identity);
+			//Instantiate ( coin, monster.transform.position, Quaternion.identity);
+			Instantiate (whatToSpawnPrefab, monster.transform.position, Quaternion.Euler(0,0,0));
 				}
 
 			}

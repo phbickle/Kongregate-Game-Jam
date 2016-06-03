@@ -1,0 +1,19 @@
+{
+	"WorldObjects":[
+	{
+		"objectID": "0", 
+		"objectName": "Monster", 
+		"iconName": "WorldObjectSprite1"
+	},
+	{
+		"objectID": "1", 
+		"objectName": "Vine", 
+		"iconName": "Test object 2"
+	},
+	{
+		"objectID": "2",
+		"objectName": "Tree", 
+		"iconName": "Test object 3"
+	}
+	]
+}
